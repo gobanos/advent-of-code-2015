@@ -1,0 +1,18 @@
+[package]
+name = "advent-of-code-2015"
+version = "0.1.0"
+authors = ["Grégory Obanos <gregory.obanos@gmail.com>"]
+
+[lib]
+bench = false
+
+[dependencies]
+reqwest = "0.9.2"
+aoc-runner = { path = "../aoc-runner" }
+
+[dev-dependencies]
+criterion = "0.2.5"
+
+[[bench]]
+name = "day1"
+harness = false
