@@ -9,6 +9,7 @@ bench = false
 [dependencies]
 reqwest = "0.9.2"
 aoc-runner = { path = "../aoc-runner" }
+aoc-runner-derive = { path = "../aoc-runner-derive" }
 
 [dev-dependencies]
 criterion = "0.2.5"

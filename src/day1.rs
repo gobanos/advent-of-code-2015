@@ -1,53 +1,31 @@
-pub fn part1(input: &str) -> i32 {
-    input.as_bytes().iter().fold(0, |sum, c| match c {
-        b'(' => sum + 1,
-        b')' => sum - 1,
-        _ => unreachable!(),
-    })
-}
-
-pub fn part1_char(input: &str) -> i32 {
-    input.chars().fold(0, |sum, c| match c {
-        '(' => sum + 1,
-        ')' => sum - 1,
-        _ => unreachable!(),
-    })
-}
-
-pub fn part2(input: &str) -> usize {
-    let mut sum : u32 = 0;
-
-    for (i, c) in input.as_bytes().iter().enumerate() {
-        match c {
-            b'(' => sum += 1,
-            b')' => if let Some(s) = sum.checked_sub(1) {
-                sum = s;
-            } else {
-                return i + 1;
-            }
+aoc! {
+    #[aoc(day1, part1)]
+    pub fn part1(input: &str) -> i32 {
+        input.as_bytes().iter().fold(0, |sum, c| match c {
+            b'(' => sum + 1,
+            b')' => sum - 1,
             _ => unreachable!(),
-        }
+        })
     }
 
-    unreachable!()
-}
+    #[aoc(day1, part2)]
+    pub fn part2(input: &str) -> usize {
+        let mut sum: u32 = 0;
 
-pub fn part2_char(input: &str) -> usize {
-    let mut sum : u32 = 0;
-
-    for (i, c) in input.chars().enumerate() {
-        match c {
-            '(' => sum += 1,
-            ')' => if let Some(s) = sum.checked_sub(1) {
-                sum = s;
-            } else {
-                return i + 1;
+        for (i, c) in input.as_bytes().iter().enumerate() {
+            match c {
+                b'(' => sum += 1,
+                b')' => if let Some(s) = sum.checked_sub(1) {
+                    sum = s;
+                } else {
+                    return i + 1;
+                },
+                _ => unreachable!(),
             }
-            _ => unreachable!(),
         }
-    }
 
-    unreachable!()
+        unreachable!()
+    }
 }
 
 #[cfg(test)]
@@ -99,5 +77,4 @@ mod tests {
     fn sample7() {
         assert_eq!(part2("()())"), 5);
     }
-
 }
