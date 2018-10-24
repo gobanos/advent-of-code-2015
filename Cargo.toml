@@ -9,11 +9,11 @@ bench = false
 [dependencies]
 reqwest = "0.9.2"
 aoc-runner = { path = "../aoc-runner" }
-aoc-runner-derive = { path = "../aoc-runner-derive" }
+aoc-runner-derive = { path = "../aoc-runner-derive", features = ["nightly"] }
 
-[dev-dependencies]
-criterion = "0.2.5"
+#[dev-dependencies]
+#criterion = "0.2.5"
 
-[[bench]]
-name = "day1"
-harness = false
+#[[bench]]
+#name = "day1"
+#harness = false

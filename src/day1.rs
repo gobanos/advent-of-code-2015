@@ -1,31 +1,29 @@
-aoc! {
-    #[aoc(day1, part1)]
-    pub fn part1(input: &str) -> i32 {
-        input.as_bytes().iter().fold(0, |sum, c| match c {
-            b'(' => sum + 1,
-            b')' => sum - 1,
+#[aoc(day1, part1)]
+pub fn part1(input: &str) -> i32 {
+    input.as_bytes().iter().fold(0, |sum, c| match c {
+        b'(' => sum + 1,
+        b')' => sum - 1,
+        _ => unreachable!(),
+    })
+}
+
+#[aoc(day1, part2)]
+pub fn part2(input: &str) -> usize {
+    let mut sum: u32 = 0;
+
+    for (i, c) in input.as_bytes().iter().enumerate() {
+        match c {
+            b'(' => sum += 1,
+            b')' => if let Some(s) = sum.checked_sub(1) {
+                sum = s;
+            } else {
+                return i + 1;
+            },
             _ => unreachable!(),
-        })
-    }
-
-    #[aoc(day1, part2)]
-    pub fn part2(input: &str) -> usize {
-        let mut sum: u32 = 0;
-
-        for (i, c) in input.as_bytes().iter().enumerate() {
-            match c {
-                b'(' => sum += 1,
-                b')' => if let Some(s) = sum.checked_sub(1) {
-                    sum = s;
-                } else {
-                    return i + 1;
-                },
-                _ => unreachable!(),
-            }
         }
-
-        unreachable!()
     }
+
+    unreachable!()
 }
 
 #[cfg(test)]
