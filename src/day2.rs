@@ -1,7 +1,6 @@
 type Gift = (u32, u32, u32);
 
-
-#[generator]
+#[generator(day2)]
 pub fn input_generator(input: &str) -> Vec<Gift> {
     input
         .lines()
