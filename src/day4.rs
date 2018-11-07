@@ -1,6 +1,6 @@
+use crypto::digest::Digest;
 use crypto::md5::Md5;
 use std::u32;
-use crypto::digest::Digest;
 
 #[aoc(day4, part1)]
 pub fn part1(secret: &str) -> u32 {
@@ -18,15 +18,15 @@ fn solver(secret: &str, is_valid: impl Fn(&[u8; 16]) -> bool) -> u32 {
     let mut hasher = Md5::new();
     hasher.input_str(secret);
 
-    (1..=u32::MAX).map(|i| {
-        let mut hasher = hasher.clone();
-        hasher.input_str(&i.to_string());
-        hasher.result(&mut hash);
+    (1..=u32::MAX)
+        .map(|i| {
+            let mut hasher = hasher.clone();
+            hasher.input_str(&i.to_string());
+            hasher.result(&mut hash);
 
-        (i, is_valid(&hash))
-    }).find(|&(_, b)| {
-        b
-    }).map(|(i, _)| i)
+            (i, is_valid(&hash))
+        }).find(|&(_, b)| b)
+        .map(|(i, _)| i)
         .expect("result is bigger than u32")
 }
 

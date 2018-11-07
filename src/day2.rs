@@ -1,6 +1,6 @@
 type Gift = (u32, u32, u32);
 
-#[generator(day2)]
+#[aoc_generator(day2)]
 pub fn input_generator(input: &str) -> Vec<Gift> {
     input
         .lines()
@@ -34,8 +34,7 @@ pub fn solve_part2(input: &[Gift]) -> u32 {
 
             (s1 + s2) * 2 + l * w * h
         }).sum()
-    }
-
+}
 
 fn smallest_side((l, w, h): Gift) -> (u32, u32) {
     let mut vec = vec![l, w, h];
@@ -71,5 +70,4 @@ mod tests {
     fn example4() {
         assert_eq!(solve_part2(&input_generator("1x1x10")), 14);
     }
-
 }
