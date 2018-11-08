@@ -20,7 +20,7 @@ fn solver(secret: &str, is_valid: impl Fn(&[u8; 16]) -> bool) -> u32 {
 
     (1..=u32::MAX)
         .map(|i| {
-            let mut hasher = hasher.clone();
+            let mut hasher = hasher;
             hasher.input_str(&i.to_string());
             hasher.result(&mut hash);
 

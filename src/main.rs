@@ -6,11 +6,11 @@ fn main() {
     use aoc_runner::ArcStr;
 
     println!(
-        "DAY4 - PART1: {}",
-        Factory::day4_part1(ArcStr::from(include_str!("../input/day4"))).run()
+        "DAY5 - PART1: {}",
+        Factory::day5_part1(ArcStr::from(include_str!("../input/day5"))).run()
     );
     println!(
-        "DAY4 - PART2: {}",
-        Factory::day4_part2(ArcStr::from(include_str!("../input/day4"))).run()
+        "DAY5 - PART2: {}",
+        Factory::day5_part2(ArcStr::from(include_str!("../input/day5"))).run()
     );
 }
