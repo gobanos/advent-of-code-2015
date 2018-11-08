@@ -1,14 +1,16 @@
 extern crate advent_of_code_2015;
-
-use advent_of_code_2015::*;
+extern crate aoc_runner;
 
 fn main() {
+    use advent_of_code_2015::*;
+    use aoc_runner::ArcStr;
+
     println!(
-        "DAY3 - PART1: {}",
-        day4::part1(include_str!("../input/day4"))
+        "DAY4 - PART1: {}",
+        Factory::day4_part1(ArcStr::from(include_str!("../input/day4"))).run()
     );
     println!(
         "DAY4 - PART2: {}",
-        day4::part2(include_str!("../input/day4"))
+        Factory::day4_part2(ArcStr::from(include_str!("../input/day4"))).run()
     );
 }
