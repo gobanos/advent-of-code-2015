@@ -1,5 +1,14 @@
-#[aoc(day1, part1)]
-pub fn part1(input: &str) -> i32 {
+#[aoc(day1, part1, bytes)]
+pub fn part1_bytes(input: &str) -> i32 {
+    input.as_bytes().iter().fold(0, |sum, c| match c {
+        b'(' => sum + 1,
+        b')' => sum - 1,
+        _ => unreachable!(),
+    })
+}
+
+#[aoc(day1, part1, char)]
+pub fn part1_chars(input: &str) -> i32 {
     input.chars().fold(0, |sum, c| match c {
         '(' => sum + 1,
         ')' => sum - 1,

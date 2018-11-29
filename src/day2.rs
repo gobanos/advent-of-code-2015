@@ -25,6 +25,19 @@ pub fn solve_part1(input: &[Gift]) -> u32 {
         }).sum()
 }
 
+#[aoc(day2, part1, for_loop)]
+pub fn solve_part1_for(input: &[Gift]) -> u32 {
+    let mut sum = 0;
+
+    for &(l, w, h) in input {
+        let (s1, s2) = smallest_side((l, w, h));
+
+        sum += 2 * l * w + 2 * w * h + 2 * h * l + s1 * s2;
+    }
+
+    sum
+}
+
 #[aoc(day2, part2)]
 pub fn solve_part2(input: &[Gift]) -> u32 {
     input
