@@ -1,4 +1,4 @@
-#[aoc(day1, part1, bytes)]
+#[aoc(day1, part1, Bytes)]
 pub fn part1_bytes(input: &[u8]) -> i32 {
     input.iter().fold(0, |sum, c| match c {
         b'(' => sum + 1,
@@ -7,7 +7,7 @@ pub fn part1_bytes(input: &[u8]) -> i32 {
     })
 }
 
-#[aoc(day1, part1, char)]
+#[aoc(day1, part1, Chars)]
 pub fn part1_chars(input: &str) -> i32 {
     input.chars().fold(0, |sum, c| match c {
         '(' => sum + 1,
@@ -37,7 +37,7 @@ pub fn part2(input: &str) -> usize {
 
 #[cfg(test)]
 mod tests {
-    use super::{part1, part2};
+    use super::{part1_chars as part1, part2};
 
     // (()) and ()() both result in floor 0.
     #[test]

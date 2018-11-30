@@ -8,12 +8,5 @@ bench = false
 
 [dependencies]
 rust-crypto = "0.2.36"
-aoc-runner = { path = "../aoc-runner" }
-aoc-runner-derive = { path = "../aoc-runner-derive" }
-
-#[dev-dependencies]
-#criterion = "0.2.5"
-
-#[[bench]]
-#name = "day1"
-#harness = false
+aoc-runner = "0.1.0"
+aoc-runner-derive = "0.1.0"
